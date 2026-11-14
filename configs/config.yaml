@@ -1,0 +1,46 @@
+# LiteLLM Proxy Configuration
+# S3 Location: s3://acme-staging-litellm-config/config.yaml
+# ==============================================================================
+
+model_list:
+  # Cross-account Bedrock access for account 111122223333
+  - model_name: bedrock-xacct/*
+    litellm_params:
+      model: bedrock/*
+      aws_region_name: us-east-1
+      aws_role_name: "arn:aws:iam::111122223333:role/BedrockCrossAccountAccessRole"
+
+# ==============================================================================
+# LITELLM SETTINGS - Performance & Reliability
+# ==============================================================================
+litellm_settings:
+  # Prompt caching for cost reduction
+  enable_anthropic_prompt_caching: true
+  anthropic_prompt_caching_ttl: "1h"
+  
+  # Retry settings
+  num_retries: 3
+  retry_after: 5
+  request_timeout: 300
+  
+  # General settings
+  max_parallel_requests: 100
+  drop_params: true
+  set_verbose: false
+
+# ==============================================================================
+# GENERAL SETTINGS - Database & Admin UI
+# ==============================================================================
+general_settings:
+  store_model_in_db: true
+  master_key: "os.environ/LITELLM_MASTER_KEY"
+  proxy_batch_write_at: 60
+
+# ==============================================================================
+# ROUTER SETTINGS - Load Balancing & Fallbacks
+# ==============================================================================
+router_settings:
+  routing_strategy: "latency-based-routing"
+  enable_pre_call_checks: true
+  allowed_fails: 3
+  cooldown_time: 60

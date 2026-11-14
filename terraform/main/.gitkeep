@@ -1,0 +1,9 @@
+# This file ensures the main LiteLLM infrastructure module directory is tracked in git
+# The main module provisions complete LiteLLM infrastructure using the official BerriAI/litellm/aws module:
+# - VPC with public/private subnets
+# - ECS Fargate cluster and services (Gateway, Backend, UI)
+# - Aurora PostgreSQL database
+# - ElastiCache Redis
+# - Application Load Balancer with HTTPS
+# - Secrets Manager integration
+# - CloudWatch monitoring and alarms

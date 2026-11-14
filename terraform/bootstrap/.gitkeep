@@ -1,0 +1,5 @@
+# This file ensures the bootstrap module directory is tracked in git
+# The bootstrap module creates foundational resources:
+# - S3 bucket for Terraform state (with versioning and encryption)
+# - S3 bucket for LiteLLM configuration files
+# - IAM policy for deployment permissions

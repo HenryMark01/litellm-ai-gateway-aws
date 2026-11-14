@@ -1,0 +1,5 @@
+# This file ensures the environments directory is tracked in git
+# Environment-specific variable files go here:
+# - staging.tfvars
+# - production.tfvars
+# Each file contains environment-specific values for instance sizes, task counts, etc.
